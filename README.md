@@ -22,7 +22,7 @@ Q1:
  - Given the following equation $$f(x)=3x+7\left(x!\over\cos {x^2}\right)$$ tell whether $x=-7$ is a root of $f(x)$
 
 <h2>Code</h2>
-```C
+``` C
 #include <stdio.h>
 
 int main(void) {

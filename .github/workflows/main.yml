@@ -15,6 +15,7 @@ jobs:
         with:
           args: -c "find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o ${0%}.html' {} \;"
       - run: |
+          ls
           git config user.name 'pdf-convert-action'
           git config user.email '<>'
           git add .

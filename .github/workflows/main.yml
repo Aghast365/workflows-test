@@ -11,12 +11,8 @@ jobs:
   convert_via_pandoc:
     name: Markdown to pdf via pandoc
     runs-on: ubuntu-22.04
+    container:
+      image: docker://pandoc/latex:3.1.1
     steps:
       - uses: actions/checkout@v4
-      - id: files
-        run: |
-          find ./ -iname "*.md" | sed 's|^./||' | paste -sd " " > file_list.txt
-          echo "list=$(cat file_list.txt)" >> $GITHUB_OUTPUT
-      - uses: docker://pandoc/latex:3.1.1
-        with:
-          args: "--from markdown --to html5 --standalone --highlight-style=breezeDark --mathml ${{ steps.files.outputs.list }}"
+      - run: "find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o output/${0%}.html' {} \;"

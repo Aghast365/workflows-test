@@ -2,6 +2,8 @@ name: Convert all markdown to pdfs
 
 on: workflow_dispatch
 
+permissions: write
+
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-22.04

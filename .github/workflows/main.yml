@@ -16,7 +16,7 @@ jobs:
       - id: files
         run: |
           find ./ -iname "*.md" | sed 's|^./||' | paste -sd " " > file_list.txt
-          echo "$(cat file_list.txt)" >> $GITHUB_OUTPUT
+          echo "list=$(cat file_list.txt)" >> $GITHUB_OUTPUT
       - uses: docker://pandoc/latex:3.1.1
         with:
-          args: "--from markdown --to html5 --standalone --highlight-style=breezeDark --mathml ${{ join(steps.files.outputs.*, ' ') }}"
+          args: "--from markdown --to html5 --standalone --highlight-style=breezeDark --mathml ${{ steps.files.outputs.list }}"

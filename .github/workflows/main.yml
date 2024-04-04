@@ -13,12 +13,11 @@ jobs:
       image: docker://pandoc/latex:3.1.1 
       options: --user root
     steps:
+      - run: |
+          apt update
+          apt install git
       - uses: actions/checkout@v4
       - run: |
-          mkdir github
-          cd github
-          mkdir workspace
-          cd ..
           find ./ -iname '*.md' -type f -exec sh -c "tmp=${0#./}; pandoc ${tmp} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o github/workspace/${tmp%.md}.html" {} \;
           ls
           git config user.name 'pdf-convert-action'

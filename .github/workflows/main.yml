@@ -17,3 +17,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: convert
         run: find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o ${0%}.html' {} \;
+      - uses: actions/upload-artifact@master
+        with:
+          path: "*.html"

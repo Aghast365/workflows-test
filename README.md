@@ -8,7 +8,7 @@ Testing pandoc workflows to add to pages site in place of jekyll
 <u>Underline</u>
 
 <h2>SVG diagram</h2>
-<svg viewbox='0 0 100 100'>
+<svg viewbox='0 0 100 100' width=100 height=100>
   <circle x=10 y=10 r=10 fill=red />
 </svg>
 

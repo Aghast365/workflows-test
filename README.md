@@ -15,14 +15,14 @@ Testing pandoc workflows to add to pages site in place of jekyll
 <h2>Math</h2>
 
 $$
-\int_5^7 {\sin(x^2)\over\cos^2(2x)}
+\int_5^7 {\frac{\sin(x^2)}{\cos^2(2x)}}
 $$
 
 <h2>Inline Math</h2>
 Q1:
 
 Given the following equation 
-$$f(x)=3x+7\left(x!\over\cos {x^2}\right)$$ 
+$$f(x)=3x+7\left(\frac{x!}{\cos {x^2}}\right)$$ 
 tell whether $x=-7$ is a root of $f(x)$
 
 <h2>Code</h2>

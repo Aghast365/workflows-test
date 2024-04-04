@@ -14,6 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o ${0%}.html' {} \;
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Converted files to pdf
+      - run: |
+          git config --global user.name 'pdf-convert-action'
+          git config --global user.email 'pdf-convert-action@users.noreply.github.com'
+          git commit -am "converted files"
+          git push

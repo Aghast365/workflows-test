@@ -1,6 +1,6 @@
 name: Deploy site with markdown as pdfs
 
-on: workflow-dispatch
+on: workflow_dispatch
 
 permissions:
   contents: read

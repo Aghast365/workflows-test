@@ -3,20 +3,17 @@ name: Deploy site with markdown as pdfs
 on: workflow_dispatch
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   convert_via_pandoc:
     name: Markdown to pdf via pandoc
     runs-on: ubuntu-22.04
-    container:
-      image: docker://pandoc/latex:3.1.1
     steps:
       - uses: actions/checkout@v4
-      - name: convert
-        run: find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o ${0%}.html' {} \;
-      - uses: actions/upload-artifact@master
+      - uses: docker://pandoc/latex:3.1.1
         with:
-          path: "*.html"
+          run: find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown --to html5 --standalone --highlight-style=breezeDark --mathml -o ${0%}.html' {} \;
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Converted files to pdf

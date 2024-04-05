@@ -31,5 +31,5 @@ jobs:
           git config user.name "convert-action"
           git config user.email "<>"
           git add .
-          git commit -m "converted md to pdf"
+          git diff-index --quiet HEAD || git commit -m "converted md to pdf"
           git push

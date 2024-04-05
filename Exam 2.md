@@ -11,7 +11,9 @@
 - All strings in this language will start and end with the same number of zero or more $a$'s, and have one or more $b$'s in the middle.
 
 ---
+
 ## Section 2
+
 **Q3: Given the follow context free grammar G: $$\begin{align}&\Sigma =\{a\} \quad \Gamma = \{S,X,Y,X_1,X_2\} \\S&\to \epsilon|YY|XY|YX|aa|YX_1\\X&\to YY|XY|YX|aa|YX_2\\Y&\to aa\\X_1&\to XY \kern 3em X_2\to XY\end{align}$$Is G in Chomsky Normal Form? If not, convert it into Chomsky Normal Form.**
 
 - $G$ is not in Chomsky normal form, as it contains rules with multiple non-terminals on one side. This may be addressed by adding the variable $X_3$ and the rule $X_3\to a$, then replacing the occurances of $a$ in the previous rules with $X_3$:

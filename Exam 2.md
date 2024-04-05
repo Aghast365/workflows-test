@@ -20,6 +20,7 @@
 - $G$ is not in Chomsky normal form, as it contains rules with multiple non-terminals on one side. This may be addressed by adding the variable $X_3$ and the rule $X_3\to a$, then replacing the occurances of $a$ in the previous rules with $X_3$:
 $$\begin{align}&\Sigma =\{a\} \quad \Gamma = \{S,X,Y,X_1,X_2,X_3\} \\S&\to \epsilon|YY|XY|YX|X_3X_3|YX_1\\X&\to YY|XY|YX|X_3X_3|YX_2\\Y&\to X_3X_3\\X_1&\to XY \kern 3em X_2\to XY\\X_3&\to a\end{align}$$
 
+
 ---
 
 ## Section 3

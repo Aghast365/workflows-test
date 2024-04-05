@@ -1,6 +1,6 @@
 name: Convert all markdown to pdfs
 
-on: workflow_dispatch
+on: push
 
 permissions: 
   contents: write
@@ -18,12 +18,6 @@ jobs:
           # Avoid using single or double quotes for multiline patterns
           files: |
              **.md
-
-      - name: List all changed files markdown files
-        run: |
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
-          done
       
       - name: Convert md to pdf
         if: steps.changed-markdown-files.outputs.any_changed == 'true'
@@ -32,7 +26,7 @@ jobs:
         uses: docker://pandoc/latex:2.9
         with:
           entrypoint: /bin/sh
-          args: -c "mkdir output; for file in ${ALL_CHANGED_FILES}; do pandoc '${file}' --from markdown+tex_math_dollars-yaml_metadata_block --to html5 --standalone --highlight-style=breezeDark --mathjax -o 'output/${file.md}.pdf'; done"
+          args: -c "mkdir output; for file in ${ALL_CHANGED_FILES}; do echo $file; pandoc '${file}' --from markdown+tex_math_dollars-yaml_metadata_block --to html5 --standalone --highlight-style=breezeDark --mathjax -o 'output/${file.md}.pdf'; done"
       - run: |
           git config user.name "convert-action"
           git config user.email "<>"

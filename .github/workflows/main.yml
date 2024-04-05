@@ -14,7 +14,7 @@ jobs:
         uses: docker://pandoc/latex:3.1
         with:
           entrypoint: /bin/sh
-          args: -c "tmp=${0// /-}; mkdir output; find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${tmp} --from markdown+tex_math_dollars --to html5 --standalone --highlight-style=breezeDark --mathjax --metadata title=${tmp%.md} -o output/${tmp%.md}.html' {} \;"
+          args: -c "tmp=${0// /-}; mkdir output; find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${tmp} --from markdown+tex_math_dollars --to html5 --standalone --highlight-style=breezeDark --mathjax --metadata title=\"${tmp%.md}\" -o output/${tmp%.md}.html' {} \;"
       - run: |
           git config user.name "convert-action"
           git config user.email "<>"

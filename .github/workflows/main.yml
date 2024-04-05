@@ -7,11 +7,11 @@ permissions:
 
 jobs:
   convert_via_pandoc:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - name: convert md to pdf
-        uses: docker://pandoc/latex:3.1
+        uses: docker://pandoc/latex:2.9
         with:
           entrypoint: /bin/sh
           args: -c "mkdir output; find ./ -iname '*.md' -type f -exec sh -c 'pandoc ${0} --from markdown+tex_math_dollars --to html5 --standalone --highlight-style=breezeDark --mathjax -o output/${0%.md}.html' {} \;"

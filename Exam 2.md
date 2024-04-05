@@ -1,4 +1,3 @@
-
 ## Section 1
 
 **Q1: The following is a definition for the language of L(G). Is the definition correct? If not, explain what is incorrect with it.**

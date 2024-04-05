@@ -1,4 +1,4 @@
-name: Convert all markdown to pdfs
+name: Convert changed md to pdf on push
 
 on: push
 

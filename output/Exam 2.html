@@ -30,19 +30,13 @@
 <li>The language <span class="math inline">\(L(G)\)</span> consists of strings containing the characters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</li>
 <li>All strings in this language will start and end with the same number of zero or more <span class="math inline">\(a\)</span>’s, and have one or more <span class="math inline">\(b\)</span>’s in the middle.</li>
 </ul>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>## Section 2 <strong>Q3: Given the follow context free grammar G: <span class="math display">\[\begin{align}&amp;\Sigma =\{a\} \quad \Gamma = \{S,X,Y,X_1,X_2\} \\S&amp;\to \epsilon|YY|XY|YX|aa|YX_1\\X&amp;\to YY|XY|YX|aa|YX_2\\Y&amp;\to aa\\X_1&amp;\to XY \kern 3em X_2\to XY\end{align}\]</span>Is G in Chomsky Normal Form? If not, convert it into Chomsky Normal Form.</strong></td>
-</tr>
-<tr class="even">
-<td>- <span class="math inline">\(G\)</span> is not in Chomsky normal form, as it contains rules with multiple non-terminals on one side. This may be addressed by adding the variable <span class="math inline">\(X_3\)</span> and the rule <span class="math inline">\(X_3\to a\)</span>, then replacing the occurances of <span class="math inline">\(a\)</span> in the previous rules with <span class="math inline">\(X_3\)</span>: <span class="math display">\[\begin{align}&amp;\Sigma =\{a\} \quad \Gamma = \{S,X,Y,X_1,X_2,X_3\} \\S&amp;\to \epsilon|YY|XY|YX|X_3X_3|YX_1\\X&amp;\to YY|XY|YX|X_3X_3|YX_2\\Y&amp;\to X_3X_3\\X_1&amp;\to XY \kern 3em X_2\to XY\\X_3&amp;\to a\end{align}\]</span></td>
-</tr>
-</tbody>
-</table>
+<hr />
+<h2 id="section-2">Section 2</h2>
+<p><strong>Q3: Given the follow context free grammar G: <span class="math display">\[\begin{align}&amp;\Sigma =\{a\} \quad \Gamma = \{S,X,Y,X_1,X_2\} \\S&amp;\to \epsilon|YY|XY|YX|aa|YX_1\\X&amp;\to YY|XY|YX|aa|YX_2\\Y&amp;\to aa\\X_1&amp;\to XY \kern 3em X_2\to XY\end{align}\]</span>Is G in Chomsky Normal Form? If not, convert it into Chomsky Normal Form.</strong></p>
+<ul>
+<li><span class="math inline">\(G\)</span> is not in Chomsky normal form, as it contains rules with multiple non-terminals on one side. This may be addressed by adding the variable <span class="math inline">\(X_3\)</span> and the rule <span class="math inline">\(X_3\to a\)</span>, then replacing the occurances of <span class="math inline">\(a\)</span> in the previous rules with <span class="math inline">\(X_3\)</span>: <span class="math display">\[\begin{align}&amp;\Sigma =\{a\} \quad \Gamma = \{S,X,Y,X_1,X_2,X_3\} \\S&amp;\to \epsilon|YY|XY|YX|X_3X_3|YX_1\\X&amp;\to YY|XY|YX|X_3X_3|YX_2\\Y&amp;\to X_3X_3\\X_1&amp;\to XY \kern 3em X_2\to XY\\X_3&amp;\to a\end{align}\]</span></li>
+</ul>
+<hr />
 <h2 id="section-3">Section 3</h2>
 <p><strong>Q4: Give a pushdown automata for strings of a’s and b’s with more a’s than b’s, and the total number of characters is evenly divisible by 3. <span class="math display">\[L=\left\{w\in\{a,b\}^*:\displaylines{\text{len}(w) \% 3 = 0\\ \text{and}\\|a(w)|&gt;|b(w)|}\right\}\]</span>(a(w) and b(w) are “the number of a’s in w”, and “the number of b’s in w” respectively)</strong></p>
 <p><strong>Q5: Given the following PDA G: Describe (in terms of characters and structure) the kinds of strings that will be in L(G).</strong></p>
